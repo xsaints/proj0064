@@ -1,0 +1,16 @@
+{% extends 'udemyx/udemyx.html' %}
+
+
+{% block navig2 %}
+  <strong>Categories</strong>
+{% endblock %}
+
+
+{% block content %}
+  {% for category in categories %}
+
+    <p><a href= "{% url 'udemyx:courses' category.id %}">{{ category.name }}</a></p>
+  
+  {% endfor %}
+
+{% endblock %}

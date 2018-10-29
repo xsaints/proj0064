@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <br />
+
+  <a href= "{% url 'udemyx:categories' %}">
+  <img src="{% static 'images/udemyx.png' %}"/></a>
+  <p>UdemyX</p>
+
+  <br />
+  <a href= "#"><img src= "{% static 'images/blog.png' %}" /></a>
+  <p>BlogZ</p>
+
+  <br />
+  <a href= "{% url 'librisy:home' %}"><img src= "{% static 'images/librisy.jpg' %}" /></a>
+  <p>LibrisY</p>
+  
+  <br />
+{% endblock %}

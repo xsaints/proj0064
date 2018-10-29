@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block appname %}
+  > Shop
+{% endblock %}
+
+{% block title %}
+  Shop-{{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+  <h1>Shop</h1>
+
+  <p>Categories</p>
+  <ul>
+  {% for category in categories %}
+
+    <li><a href= "{% url 'shop:products' category.id %}">{{ category.name }}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}

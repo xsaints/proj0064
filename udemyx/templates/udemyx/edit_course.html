@@ -1,0 +1,18 @@
+{% extends 'udemyx/udemyx.html' %}
+
+
+{% block navig2 %}
+  <a href="{% url 'udemyx:categories' %}">Categories</a>
+    > <strong>{{ category.name }}</strong>
+{% endblock %}
+
+
+{% block content %}
+
+  <form method= "POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type= 'submit' value= "Save changes">
+
+{% endblock %}

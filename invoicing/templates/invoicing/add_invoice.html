@@ -1,0 +1,14 @@
+
+
+<h1>Invoice Entry Form</h1>
+
+
+<form method= "POST">
+
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <input type= 'submit' value= 'Add'>
+</form>
+
+

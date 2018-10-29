@@ -1,0 +1,11 @@
+{% for post in posts %}
+  
+  <p><strong>{{ post.title }}</strong>
+  {{ post.create_date|date:'Y m d, h:m:s' }} |
+  {{ post.author }}
+  </p>
+  <p>{{ post.text }}</p>
+
+
+
+{% endfor %}

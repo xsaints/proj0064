@@ -1,0 +1,15 @@
+{% extends 'udemyx/udemyx.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+  <a href="{% url 'udemyx:categories' %}">Categories</a>
+    > <strong>{{ course.title }}</strong>
+
+  <br />  
+  {{ course }}
+  <img src= "{% if course.image %}{{ course.image.url }}{% else %}{% static 'images/no_image.png' %}{% endif %}">
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'librisy/librisy.html' %}
+{% load static %}
+
+
+{% block col1 %}
+  <ul>
+  <a href="{% url 'librisy:all_genres' %}"><strong>Genres</strong></a>
+  {% for g in genres %}
+    <li><a href= "{% url 'librisy:books_by_genre' g.id %}">{{ g.name }}</a></li>
+  {% empty %}    
+    <p>None found.</p>
+  {% endfor %}
+  </ul>
+
+  <ul>
+  <a href="{% url 'librisy:all_authors' %}"><strong>Authors</strong></a>
+  {% for a in authors %}
+    <li><a href= "{% url 'librisy:books_by_author' a.id %}">{{ a.last_name }}, {{ a.first_name }}</a></li>
+  {% empty %}    
+    <p>None found.</p>
+  {% endfor %}
+  </ul>
+
+{% endblock %}
+
+
+{% block content %}
+  <p><a href="{% url 'librisy:home' %}">Home</a> 
+  {% if genre %}> {{ genre.name }}{% else %}> {{ author.first_name }} {{ author.last_name}}{% endif %}</p>
+  {% for book in books %}
+    <p>      
+    <a href= "#">{{ book.title }}</a>
+    <small>{{ book.publication_date|date:"Y"}}</small>
+    </p>
+  {% empty %}    
+    <p>None found.</p>
+  {% endfor %}
+
+{% endblock %}
+
+

@@ -1,0 +1,16 @@
+{% extends 'librisy/librisy.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+  <a href="{% url 'librisy:home' %}">Categories</a>
+    > <strong>{{ book.title }}</strong>
+
+  <br />  
+  {{ book.author }}
+  <!--<img src= "{% if course.image %}{{ course.image.url }}{% else %}{% static 'images/no_image.png' %}{% endif %}">
+  -->
+
+{% endblock %}

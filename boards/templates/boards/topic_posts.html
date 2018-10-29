@@ -1,0 +1,31 @@
+{% extends 'boards/base.html' %}
+
+{% block topbar %}
+  <a href= "{% url 'boards:boards' %}">Home</a> > <a href= "{% url 'boards:board_topics' topic.board.id %}">{{ topic.board.name }} </a>
+{% endblock %}
+
+{% block content %}
+  <h1>Boards</h1>
+
+  <table border= "1">
+    <thead>
+      <tr>
+        <th>Posts</th><th></th><th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for post in topic.posts.all %}
+      <tr>
+        <td>
+          <a href= "#">{{ post.message }}</a>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    {% empty %}
+      <p>No posts yet.</p>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

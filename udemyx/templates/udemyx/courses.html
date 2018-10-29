@@ -1,0 +1,27 @@
+{% extends 'udemyx/udemyx.html' %}
+
+
+{% block navig2 %}
+  <a href="{% url 'udemyx:categories' %}">Categories</a>
+    > <strong>{{ category.name }}</strong>
+{% endblock %}
+
+
+{% block content %}
+  <p>
+  <a href= "{% url 'udemyx:new_course' category.id %}">Add a New Course</a></p>
+
+
+  {% for course in courses %}
+
+    <p><strong>{{ course.title }}</strong></p>
+    <p>by <strong>{{ course.author }}</strong> | Updated: {{ course.date_updated|date:'M d Y' }} | <a href= "{% url 'udemyx:edit_course' course.id %}">Edit</a>
+  
+    <br />
+    {{ course.description }}
+
+  {% endfor %}
+
+
+
+{% endblock %}

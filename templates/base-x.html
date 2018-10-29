@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype HTML>
+<html lang= "en">
+<head>
+  <meta charset= 'UTF-8'>
+  <title>
+  {% block title %}
+    Practice002
+  {% endblock %}
+  </title>
+
+  <!--
+  <link rel= "stylesheet" href="{% static 'css/base.css' %}">
+  -->
+  {% include 'includes/includes.html' %}
+
+</head>
+<body>
+
+  {% block navig1 %}
+    <a href= "{% url 'home' %}">Home</a>
+  {% endblock %}
+
+  {% block body %}
+    {% block pgtitle %}
+      <h1>Applications</h1>
+    {% endblock %}      
+
+    {% block navig2 %}
+    {% endblock %}
+
+
+    {% block content %}
+    {% endblock %}
+
+
+  {% endblock %}
+
+
+  {% block footer %}
+  {% endblock %}
+
+</body>
+
+</html>
+

@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype HTML>
+<html lang= "en">
+<head>
+  <meta charset= 'UTF-8'>
+  <title>
+  {% block title %}
+    Project0064
+  {% endblock %}
+  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% include 'includes/css_include.html' %}
+
+  <link rel= "stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body>
+  <div class="container-fluid">
+    {% block navig1 %}
+      <a href= "{% url 'home' %}">Home</a>
+    {% endblock %}
+
+    <nav class="navbar navbar-expand-xl bg-secondary navbar-dark">
+      <!-- first div -->
+      <a class="navbar-brand" href= "{% url 'home' %}" class="navbar-brand"><image src= "{% static 'images/defiant-2.png'%}"></image></a>
+
+      <!-- 2nd div -->
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link" href="#">home</a>
+        <a class="nav-item nav-link" href= "#">columns</a>
+        <a class="nav-item nav-link" href="#">home</a>
+        <a class="nav-item nav-link" href= "#">columns</a>
+        <a class="nav-item nav-link" href="#">home</a>
+        <a class="nav-item nav-link" href= "#">columns</a>
+      </div>
+    </nav>
+  
+
+    {% block body %}
+      <!-- page main header -->
+      <section class="intro d-flex align-items-center text-light text-center ">
+        {% block pgtitle %}
+          <div class="container">        
+            <h2>Applications</h2>
+            {% include 'includes/lorem.html' %}          
+          </div>
+        {% endblock %}                  
+      </section>          
+
+
+      <section class="navig2">
+        {% block navig2 %}
+        {% endblock %}
+      </section>
+
+      <!-- 3 columns of the page -->
+      <div class="row">
+        <div class="col-sm-2">
+          {% block col1 %}
+          {% endblock %}
+        </div>
+        <div class="col-sm-8">  
+          {% block content %}
+            <a href= "{% url 'home' %}">Home</a>
+          {% endblock %}
+
+        </div>
+        <div class="col-sm-2">
+          {% block col3 %}
+          {% endblock %}
+        </div>
+      </div>
+    {% endblock %} <!-- body block -->
+
+
+    {% block footer %}
+    (c) Copyleft. All rights surrendered! c. 2018.
+    <p><small>Do not call us. 780-382-5YOU.<small></p>
+    {% endblock %}
+
+    {% include 'includes/js_include.html' %}  
+
+  </div>
+</body>
+
+</html>
+
