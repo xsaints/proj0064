@@ -1,0 +1,87 @@
+Droplet Name: udrop02
+IP Address: 206.189.198.224
+Username: root
+Password: 72dfbb1c5a177773fa494188b3
+
+
+
+create droplet
+
+login as root via putty
+
+adduser barry
+
+give sudo to added user
+usermod -aG sudo barry
+
+
+set up basic firewall
+ufw app list
+ufw allow OpenSSH
+ufw enable
+ufw status
+
+
+enable external access to regular user
+
+ssh barry@206.189.198.224
+
+
+install packages from urepositories
+* python3 is automatically installed in droplet
+
+sudo apt update
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+
+
+create postgresql db and user
+
+psql > CREATE DATABASE psqldb02;
+psql > CREATE USER user01 WITH PASSWORD 'user01';
+
+
+ALTER ROLE user01 SET client_encoding TO 'utf8';
+ALTER ROLE user01 SET default_transaction_isolation TO 'read committed';
+ALTER ROLE user01 SET timezone TO 'UTC';
+
+psqldb02
+user01
+
+
+
+sudo systemctl start gunicorn.service
+sudo systemctl enable gunicorn.service
+
+* if any fail or does not show Created symlink, there is an error, fix and run
+sudo systemctl daemon-reload
+then rerun above
+
+sudo systemctl status gunicorn.service
+
+
+
+* to restart server to show pages again
+sudo systemctl restart gunicorn
+
+
+
+Client ID
+    782bafe76d1d01ab31aa
+Client Secret
+    1ff4fad146bada8e849a8c2186b39e223535a2ec
+
+
+    
+git init
+
+git add .
+
+git commit -m "first commit"
+git reset --soft HEAD~1
+
+git remote add origin https://github.com/xsaints/proj0064.git
+
+
+git remote -via
+
+git push origin master    
